@@ -234,8 +234,42 @@ function initFAQ() {
   });
 }
 
+// Video Play Functionality
+function initVideoPlayer() {
+  const video = document.getElementById('project-video');
+  const playButton = document.getElementById('play-button');
+  const overlay = document.getElementById('video-play-overlay');
+  
+  if (video && playButton && overlay) {
+    playButton.addEventListener('click', function() {
+      video.play();
+      overlay.classList.add('hidden');
+    });
+    
+    // Hide overlay when video starts playing
+    video.addEventListener('play', function() {
+      overlay.classList.add('hidden');
+    });
+    
+    // Show overlay when video is paused (except when user manually pauses)
+    video.addEventListener('pause', function() {
+      if (!video.ended) {
+        overlay.classList.remove('hidden');
+      }
+    });
+    
+    // Show overlay when video ends
+    video.addEventListener('ended', function() {
+      overlay.classList.remove('hidden');
+    });
+  }
+}
+
 // Initialize FAQ when DOM is loaded
-document.addEventListener('DOMContentLoaded', initFAQ);
+document.addEventListener('DOMContentLoaded', function() {
+  initFAQ();
+  initVideoPlayer();
+});
 
 // Gallery Carousel (vanilla JS)
 (function initCarousel(){
