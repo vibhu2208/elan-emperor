@@ -84,7 +84,7 @@
   /* Hero */
   .hero {
     height: 85vh;
-    background: url('images/image1.webp') center/cover no-repeat;
+    background: url('images/banner-image1.webp') center/cover no-repeat;
     border-bottom: 1px solid var(--border);
     position: relative;
     display: flex;
