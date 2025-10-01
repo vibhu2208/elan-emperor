@@ -1,3 +1,30 @@
+/* Performance Optimizations */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'GFS Didot';
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+}
+
+/* Reduce layout shifts */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Optimize animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Font class */
 .gfs-didot-regular {
     font-family: "GFS Didot", serif;
